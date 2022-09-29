@@ -1,0 +1,99 @@
+@import "../../styles/util.less";
+
+page {
+    background-color: #F2F3F5;
+}
+
+.activity-detail-page {
+    padding: 0 20rpx;
+    padding-bottom: 200rpx;
+}
+
+.event-info-box {
+    .box();
+
+    >.box-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        >Icon {
+            margin-right: 10rpx;
+        }
+
+        &.truncate>Text {
+            width: 500rpx;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        >.button-map {
+            padding: 5rpx 20rpx 10rpx;
+            font-size: 24rpx;
+            line-height: initial;
+            background-color: #ECECEE;
+            color: #6955EF;
+            font-family: sans-serif;
+            white-space: nowrap;
+
+            // to remove border from Taro button
+            &:after {
+                border: none;
+            }
+        }
+    }
+}
+
+.event-description-box {
+    .box();
+}
+
+.event-rsvp-box {
+    .box();
+
+    .rsvp-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .profile-pic {
+        width: 60rpx;
+        height: 60rpx;
+    }
+
+    .add-icon {
+        position: absolute;
+        right: 45rpx;
+        width: 60rpx;
+        height: 60rpx;
+    }
+}
+
+.action-panel-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    height: 100rpx;
+    width: 100%;
+    left: 0;
+    padding: 25rpx 0;
+    background-color: white;
+
+    .button-default {
+        .button();
+        border: 2rpx solid #6955EF;
+        color: #6955EF;
+    }
+
+    .button-primary {
+        .button();
+        border: 2rpx solid #6955EF;
+        background-color: #6955EF;
+        color: white;
+    }
+}

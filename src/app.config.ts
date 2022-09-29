@@ -3,7 +3,8 @@ export default defineAppConfig({
     'pages/index/index',
     'pages/profile/profile',
     'pages/community/community',
-    'pages/activity_detail/activity_detail'
+    'pages/activity_detail/activity_detail',
+    'pages/confirm_signup/confirm_signup'
   ],
   window: {
     backgroundTextStyle: 'light',

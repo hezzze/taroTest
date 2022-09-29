@@ -7,6 +7,36 @@ import api from '../../utils/api'
 
 import './index.less'
 
+import prof1 from '../../resource/prof1.png'
+import prof2 from '../../resource/prof2.png'
+
+const DUMMY_USER1 = {
+  uid: 100,
+  profileUrl: prof1
+}
+
+const DUMMY_USER2 = {
+  uid: 102,
+  profileUrl: prof2
+}
+
+const DUMMY_ACTIVITY = {
+  title: "声所XAquaX桨板｜朝阳公园荷花池",
+  aid: 1,
+  dateStr: "周六6pm-9pm",
+  imgUrl: 'https://meng2x.oss-cn-beijing.aliyuncs.com/m2_api/activity1_a8f0c47fd1.png?updated_at=2022-09-14T15:11:51.632Z',
+  startTime: '2022-6-23 12:00',
+  endTime: '2022-6-23 13:00',
+  addressName: '北京国际旅游度假区水上乐园',
+  location: '北京延庆圣地西路10000号，2单元，3楼4001',
+  price: 98.00,
+  rsvps: [
+    DUMMY_USER1,
+    DUMMY_USER2,
+    ...[DUMMY_USER1, DUMMY_USER1, DUMMY_USER1]
+  ]
+}
+
 class Index extends Component<PropsWithChildren> {
   config = {
     navigationBarTitleText: '首页'
@@ -23,19 +53,7 @@ class Index extends Component<PropsWithChildren> {
       //   url: api.getLatestActivities()
       // })
 
-      const dummy = [{
-        title: "声所XAquaX桨板｜朝阳公园荷花池",
-        aid: 1,
-        dateStr: "周六6pm-9pm"
-      }, {
-        title: "声所XAquaX桨板｜朝阳公园荷花池",
-        aid: 2,
-        dateStr: "周六6pm-9pm"
-      }, {
-        title: "声所XAquaX桨板｜朝阳公园荷花池",
-        aid: 2,
-        dateStr: "周六6pm-9pm"
-      }]
+      const dummy = [DUMMY_ACTIVITY, DUMMY_ACTIVITY, DUMMY_ACTIVITY]
 
       this.setState({
         activities: dummy,
