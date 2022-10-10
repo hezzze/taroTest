@@ -1,18 +1,18 @@
 import Taro, { eventCenter } from '@tarojs/taro'
 import { Component, PropsWithChildren } from 'react'
 import { View, Text, Navigator, Image } from '@tarojs/components'
-import { IActivity } from 'src/interfaces/activity'
+import { IActivity } from 'src/interfaces/app'
 import api from '../utils/api'
 import { ACTIVITY_DETAIL_NAVIGATE } from '../utils'
 
 import './activity.less'
 
 
-interface IProps {
+interface IProps extends PropsWithChildren {
   activity: IActivity
 }
 
-class Activity extends Component<IProps, PropsWithChildren> {
+class Activity extends Component<IProps> {
 
   handleNavigate = () => {
     const { aid, not_navi } = this.props.activity

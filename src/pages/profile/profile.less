@@ -1,0 +1,84 @@
+page {
+    background-color: #F2F3F5;
+}
+
+.profile-page {
+    padding: 0 20rpx;
+}
+
+.profile-card {
+    margin-top: 40rpx;
+    background-color: white;
+    border-radius: 10rpx;
+    position: relative;
+
+    .card-bg {
+        height: 180rpx;
+        margin-bottom: 80rpx;
+        background-color: #6955EF;
+        border-top-left-radius: 10rpx;
+        border-top-right-radius: 10rpx;
+    }
+
+    .profile-pic {
+        position: absolute;
+        left: 30rpx;
+        top: 110rpx;
+    }
+
+    .profile-edit-btn {
+        padding: 10rpx 35rpx;
+        font-size: 30rpx;
+        line-height: initial;
+        background-color: #F5F4F7;
+        font-family: sans-serif;
+        border-radius: 30rpx;
+        position: absolute;
+        right: 40rpx;
+        top: 200rpx;
+        color: #515053;
+
+        // to remove border from Taro button
+        &:after {
+            border: none;
+        }
+    }
+
+    .profile-name {
+        font-size: 35rpx;
+    }
+
+    .info-row {
+        padding: 15rpx 30rpx;
+
+    }
+
+    .profile-tags {
+        display: flex;
+        flex-direction: row;
+
+        .profile-tag {
+            color: #B7B6B9;
+        }
+    }
+}
+
+.activity-box {
+    margin-top: 40rpx;
+
+    .activity-card {
+        margin-top: 15rpx;
+    }
+
+    .at-tabs__item--active {
+        color: #6955EF;
+    }
+
+    .at-tabs__item-underline {
+        background-color: #6955EF;
+    }
+
+    .at-tabs__item {
+        font-size: 35rpx;
+    }
+}

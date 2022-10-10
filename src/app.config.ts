@@ -2,9 +2,11 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/profile/profile',
+    'pages/profile_edit/profile_edit',
     'pages/community/community',
     'pages/activity_detail/activity_detail',
-    'pages/confirm_signup/confirm_signup'
+    'pages/confirm_signup/confirm_signup',
+    'pages/tags_edit/tags_edit'
   ],
   window: {
     backgroundTextStyle: 'light',

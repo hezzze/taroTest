@@ -6,13 +6,21 @@
 
     >.box-row {
         padding: 15rpx 35rpx;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 20rpx;
+        align-items: center;
+
+        >.box-title {
+            color: #B7B6B9;
+            font-size: 35rpx;
+        }
     }
 }
 
 .button {
     font-family: sans-serif;
-    height: 90rpx;
-    width: 250rpx;
     display: flex;
     justify-content: center;
     align-items: center;

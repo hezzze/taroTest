@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { Component, PropsWithChildren } from 'react'
 import { View, Text, Icon, Button, Image } from '@tarojs/components'
-import { IActivity } from 'src/interfaces/activity'
+import { IActivity } from 'src/interfaces/app'
 import './activity_detail.less'
 
 import { Activity } from '../../components/activity'
