@@ -1,5 +1,6 @@
 export default defineAppConfig({
   pages: [
+    // 'pages/landing/landing',
     'pages/index/index',
     'pages/profile/profile',
     'pages/profile_edit/profile_edit',
