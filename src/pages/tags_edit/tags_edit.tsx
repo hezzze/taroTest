@@ -1,57 +1,9 @@
 import { Component, PropsWithChildren } from 'react'
 import { View, Button, Input, Text } from '@tarojs/components'
 import { AtIcon, AtTabs, AtTabsPane } from 'taro-ui'
+import { TAGS } from '../../utils'
 
 import './tags_edit.less'
-
-interface ITag {
-  id: number
-  title: string
-  category: number
-}
-
-const TAGS: ITag[] = [
-  {
-    title: '创业',
-    id: 0,
-    category: 0
-  },
-  {
-    title: '户外',
-    id: 1,
-    category: 0
-  },
-  {
-    title: '愤青',
-    id: 2,
-    category: 0
-  },
-  {
-    title: '斜杠青年',
-    id: 3,
-    category: 0
-  },
-  {
-    title: '音乐',
-    id: 4,
-    category: 0
-  },
-  {
-    title: '公益',
-    id: 5,
-    category: 3
-  },
-  {
-    title: '唱歌',
-    id: 6,
-    category: 1
-  },
-  {
-    title: '打工狗',
-    id: 7,
-    category: 2
-  }
-]
 
 
 export default class ProfileEdit extends Component<PropsWithChildren> {

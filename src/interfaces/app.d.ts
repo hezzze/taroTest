@@ -29,8 +29,7 @@ export type IProfile = {
   tags: Array<string>
   relationshipStatus: string[]
   region: string
-  homeProvince: string
-  homeCity: string
+  hometown: string
   degree: string
   school: string
   selfIntro: string

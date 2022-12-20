@@ -1,6 +1,7 @@
 {
   "projectname": "taroTest",
   "setting": {
-    "compileHotReLoad": true
+    "compileHotReLoad": true,
+    "urlCheck": false
   }
 }

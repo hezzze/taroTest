@@ -7,7 +7,8 @@ export default defineAppConfig({
     'pages/community/community',
     'pages/activity_detail/activity_detail',
     'pages/confirm_signup/confirm_signup',
-    'pages/tags_edit/tags_edit'
+    'pages/tags_edit/tags_edit',
+    'pages/member_join/member_join'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -35,6 +36,7 @@ export default defineAppConfig({
     'color': '#000',
     'selectedColor': '#56abe4',
     'backgroundColor': '#fff',
-    'borderStyle': 'white'
+    'borderStyle': 'white',
+    'custom': true
   },
 })

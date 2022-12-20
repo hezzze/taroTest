@@ -1,0 +1,74 @@
+@import '../../styles/util.less';
+
+page {
+    background-color: #F2F3F5;
+}
+
+.profile-edit-page {
+    padding: 0 20rpx 200rpx;
+
+    .profile-tag {
+        background-color: #F5F4F7;
+        padding: 10rpx 20rpx;
+        margin-right: 15rpx;
+        border-radius: 10rpx;
+    }
+}
+
+.avatar-view {
+    display: flex;
+    position: relative;
+    height: 200rpx;
+    align-items: center;
+    justify-content: center;
+
+    .avatar-box {
+        position: relative;
+    }
+
+    .profile-pic-edit-icon {
+        position: absolute;
+        font-size: 35rpx !important;
+        padding: 10rpx;
+        background-color: white;
+        border-radius: 100%;
+        right: -15rpx;
+        bottom: 0;
+    }
+}
+
+.edit-form-box {
+    .box();
+}
+
+.my-tags-box {
+    .box();
+    position: relative;
+
+    .tags-edit-btn {
+        .button();
+        position: absolute;
+        right: 30rpx;
+        top: 10rpx;
+        border: none;
+        background-color: transparent;
+        color: #7355EF;
+
+        // to remove border from Taro button
+        &:after {
+            border: none;
+        }
+    }
+}
+
+.my-relationship-box {
+    .box();
+}
+
+.self-intro-box {
+    .box();
+}
+
+.wish-box {
+    .box();
+}

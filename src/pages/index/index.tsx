@@ -2,13 +2,18 @@ import { Component, PropsWithChildren } from 'react'
 
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import { IActivity } from 'src/interfaces/app'
 import { ActivityList } from '../../components/activity_list'
-import api from '../../utils/api'
+import { post } from '../../utils/api'
 
 import './index.less'
 
 import prof1 from '../../resource/prof1.png'
 import prof2 from '../../resource/prof2.png'
+
+import type { ActivityItem } from '../../utils/api/types/ActivityItem'
+import type CustomTabBar from '../../custom-tab-bar'
+
 
 const DUMMY_USER1 = {
   uid: 100,
@@ -37,14 +42,49 @@ const DUMMY_ACTIVITY = {
   ]
 }
 
-class Index extends Component<PropsWithChildren> {
+const getActivities = (activityDataList: ActivityItem[]) => {
+  const activities: IActivity[] = activityDataList.map<IActivity>(a => ({
+    title: a.activity_name!,
+    aid: a.activity_id!,
+    dateStr: a.start_at,
+    imgUrl: DUMMY_ACTIVITY.imgUrl,
+    startTime: a.start_at,
+    endTime: a.end_at,
+    addressName: a.location,
+    location: a.location_geo,
+    price: 10,
+    rsvps: [
+      DUMMY_USER1,
+      DUMMY_USER2,
+      ...[DUMMY_USER1, DUMMY_USER1, DUMMY_USER1]
+    ]
+  }))
+  return activities
+}
+
+interface IndexState {
+  loading: boolean
+  activities: IActivity[]
+  page: number
+}
+
+class Index extends Component<PropsWithChildren, IndexState> {
+  pageCtx = Taro.getCurrentInstance().page
+
   config = {
     navigationBarTitleText: '首页'
   }
 
   state = {
     loading: true,
-    activities: []
+    activities: [],
+    page: 1
+  }
+
+  componentDidShow() {
+    // 自定义 tabbar
+    const tabbar = Taro.getTabBar<CustomTabBar>(this.pageCtx)
+    tabbar?.setSelected(0)
   }
 
   async componentDidMount() {
@@ -53,16 +93,47 @@ class Index extends Component<PropsWithChildren> {
       //   url: api.getLatestActivities()
       // })
 
-      const dummy = [DUMMY_ACTIVITY, DUMMY_ACTIVITY, DUMMY_ACTIVITY]
+      const res = await post('/api/v1/user/activity/list', {
+        page: {
+          page: this.state.page,
+          page_size: 3
+        }
+      })
 
+      const activities = getActivities(res.data.list)
+
+      console.log(activities)
       this.setState({
-        activities: dummy,
-        loading: false
+        activities,
+        loading: false,
+        page: this.state.page + 1
       })
     } catch (error) {
       Taro.showToast({
         title: '载入远程数据错误'
       })
+    }
+  }
+
+  onReachBottom = async () => {
+    if (this.state.activities.length > 3) {
+      try {
+        const res = await post('/api/v1/user/activity/list', {
+          page: {
+            page: this.state.page,
+            page_size: 3
+          }
+        })
+
+        this.setState({
+          activities: [this.state.activities, ...getActivities(res.data.list)],
+          loading: false,
+          page: this.state.page + 1
+        })
+      }
+      catch (e) {
+
+      }
     }
   }
 
@@ -73,6 +144,7 @@ class Index extends Component<PropsWithChildren> {
         <ActivityList
           activities={activities}
           loading={loading}
+          onReachBottom={this.onReachBottom}
         />
       </View>
     )

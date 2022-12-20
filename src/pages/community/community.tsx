@@ -1,19 +1,28 @@
 import { Component, PropsWithChildren } from 'react'
 import { View, Text } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { AtSearchBar, AtAvatar } from 'taro-ui'
-import { DUMMY_PROFILE, DUMMY_PROFILE2, DUMMY_PROFILE3, DUMMY_PROFILE4 } from '../../utils/api'
-
+import { DUMMY_PROFILE, DUMMY_PROFILE2, DUMMY_PROFILE3, DUMMY_PROFILE4 } from '../../utils/mockApi'
 
 
 // import AtSearchBar from '../../components/search-bar'
 import './community.less'
+import CustomTabBar from '../../custom-tab-bar'
+
 
 const PROFILES = [DUMMY_PROFILE, DUMMY_PROFILE2, DUMMY_PROFILE3, DUMMY_PROFILE4]
 
 export default class Community extends Component<PropsWithChildren> {
+  pageCtx = Taro.getCurrentInstance().page
 
   state = {
     searchVal: ''
+  }
+
+  componentDidShow() {
+    // 自定义 tabbar
+    const tabbar = Taro.getTabBar<CustomTabBar>(this.pageCtx)
+    tabbar?.setSelected(1)
   }
 
   onChange = (val) => {
